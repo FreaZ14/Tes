@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ContactController;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
@@ -48,14 +47,9 @@ require __DIR__.'/../vendor/autoload.php';
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
-$contactController = $app->make(ContactController::class);
 
 $response = $kernel->handle(
-    $request = Request::create('contact', 'POST', [
-        'name' => 'Farhan',
-        'email' => 'farhan@laravel.com',
-        'message' => 'Hai, saya Farhan',
-    ])
+    $request = Request::capture()
 )->send();
 
 $kernel->terminate($request, $response);
