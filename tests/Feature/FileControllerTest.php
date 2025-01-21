@@ -1,9 +1,11 @@
 <?php
 
 namespace Tests\Feature;
-
+use Illuminate\Http\UploadedFile;
+use Request;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Symfony\Component\HttpFoundation\File\UploadedFile as FjpUploadedFile;
 use Tests\TestCase;
 
 class FileControllerTest extends TestCase
