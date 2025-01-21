@@ -5,9 +5,10 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use illuminate\http\Request;
+use Illuminate\Http\Request;
+use App\Services\HelloService;
 
-class HelloControllerTest extends Controller
+class HelloControllerTest extends TestCase
 {
     private HelloService $helloService;
 
@@ -15,8 +16,10 @@ class HelloControllerTest extends Controller
     {
         $this->helloService = $helloService;
     }
+
     public function hello(Request $request, string $name)
     {
         return $this->helloService->hello(name: $name);
     }
 }
+
