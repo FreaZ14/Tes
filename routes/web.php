@@ -10,10 +10,19 @@ Route::get('/user/create', [UserController::class, 'create']);
 Route::post('/user/store', [UserController::class, 'store']);
 
 
-
 // Route untuk menampilkan form
 Route::get('/form', [FormController::class, 'showForm']);
 
 // Route untuk menangani submit form
 Route::post('/form/submit', [FormController::class, 'handleForm']);
+
+
+// Route untuk menangani RouteParameter
+Route::get('/products/{id}', function ($id) {
+    return "Product $id";
+});
+
+Route::get('/products/{id}/items/{item_id}', function ($id, $item_id) {
+    return "Product $id, item $item_id";
+});
 
