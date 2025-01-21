@@ -24,6 +24,13 @@ class ResponseControllerTest extends TestCase
             ->assertHeaderMissing('Content-Type', 'application/json')
             ->assertHeaderMissing('Author', 'Muhammad Farhan Assyauqi')
             ->assertHeaderMissing('App', 'Belajar Laravel');
+            
+
+    $response = $this->get('/response/header');
+    
+    $response->assertHeader('X-Custom-Header', 'CustomValue');
+
+
     }
 }
 
