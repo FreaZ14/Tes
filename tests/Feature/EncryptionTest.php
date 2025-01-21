@@ -11,7 +11,7 @@ class EncryptionTest extends TestCase
     public function testEncryption(): void
     {
        $encrypt = Crypt::encrypt(value: 'Farhan Assyauqi');
-       var_dump(value:$encrypt);
+       var_dump(value: $encrypt);
 
        $decrypt = Crypt::decrypt(payload: $encrypt);
 
