@@ -31,4 +31,25 @@ class InputControllerTest extends TestCase
             'birth_date' => '2006-01-21'
         ])->assertSeeText(value: 'Farhan')->assertSeeText(value: 'false')->assertSeeText(value: '2006-01-21');
     }
+
+    public function testFilterOnly(): void
+    {
+        $this->post(uri: '/input/filter/only', data:[
+            "name" => [
+                "first" => "Muhammad",
+                "middle" => "Farhan",
+                "last" => "Assyauqi"
+            ]
+        ])->assertSeeText(value: "Muhammad")->assertSeeText(value: "Assyauqi")
+        ->assertDontSeeText(value: "Assyauqi");
+}
+public function testFilterExcept(): void
+{
+    $this->post(uri: '/input/filter/except', data: [
+            "username" => "Farhan",
+            "password" => "123456"
+            "admin" => "true"
+
+        ])->assertSeeText(value: "Farhan")->assertSeeText(value: "123456")
+        ->assertDontSeeText(value: "true");
 }
