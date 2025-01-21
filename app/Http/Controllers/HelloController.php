@@ -9,22 +9,18 @@ use App\Http\Controllers\HelloController;
 use Illuminate\Http\Request;
 use App\Services\HelloService;
 
-class HelloControllerTest extends TestCase
+class HelloControllerTest extends Controller
 {
-    private HelloController $helloController;
+    private $helloService;
 
-    public function __construct(HelloController $helloController)
+    public function __construct(HelloService $helloService)
     {
-        $this->helloController = $helloController;
+        $this->helloService = $helloService;
     }
 
-    public function test_hello()
+    public function hello(Request $request, string $name)
     {
-        $request = Request::create('/hello', 'GET', ['name' => 'Farhan']);
-
-        $response = $this->helloController->hello($request);
-
-        $this->assertEquals('Hello Farhan', $response->getContent());
+        return $this->helloService->hello(['name' => $name]);        
     }
 }
 
