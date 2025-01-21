@@ -10,17 +10,17 @@ class ResponseControllerTest extends TestCase
 {
     public function testResponse(): void
     {
-        $this->get(uri: '/response/hello')
-            ->assertStatus(value: 200)
-            ->assertSeeText(value: 'hello response');
+        $this->get('/response/hello')
+            ->assertStatus(200)
+            ->assertSeeText('hello response');
     }
 
     public function testHeader(): void
     {
-        $this->get(uri: '/response/header')
-            ->assertStatus(value: 200)
-            ->assertSeeText(value: 'Farhan')
-            ->assertSeeText(value: 'Assyauqi')
+        $this->get('/response/header')
+            ->assertStatus(200)
+            ->assertSeeText('Farhan')
+            ->assertSeeText('Assyauqi')
             ->assertHeader('Content-Type', 'application/json')
             ->assertHeader('Author', 'Muhammad Farhan Assyauqi')
             ->assertHeader('App', 'Belajar Laravel');
