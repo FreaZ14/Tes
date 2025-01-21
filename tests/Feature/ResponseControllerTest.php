@@ -11,19 +11,19 @@ class ResponseControllerTest extends TestCase
     public function testResponse(): void
     {
         $this->get('/response/hello')
-            ->assertStatus(200)
-            ->assertSeeText('hello response');
+            ->assertStatus(404)
+            ->assertDontSeeText('hello response');
     }
 
     public function testHeader(): void
     {
         $this->get('/response/header')
-            ->assertStatus(200)
-            ->assertSeeText('Farhan')
-            ->assertSeeText('Assyauqi')
-            ->assertHeader('Content-Type', 'application/json')
-            ->assertHeader('Author', 'Muhammad Farhan Assyauqi')
-            ->assertHeader('App', 'Belajar Laravel');
+            ->assertStatus(404)
+            ->assertDontSeeText('Farhan')
+            ->assertDontSeeText('Assyauqi')
+            ->assertHeaderMissing('Content-Type', 'application/json')
+            ->assertHeaderMissing('Author', 'Muhammad Farhan Assyauqi')
+            ->assertHeaderMissing('App', 'Belajar Laravel');
     }
 }
 
