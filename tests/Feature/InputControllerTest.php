@@ -47,9 +47,10 @@ public function testFilterExcept(): void
 {
     $this->post(uri: '/input/filter/except', data: [
             "username" => "Farhan",
-            "password" => "123456"
+            "password" => "123456",
             "admin" => "true"
 
         ])->assertSeeText(value: "Farhan")->assertSeeText(value: "123456")
         ->assertDontSeeText(value: "true");
+}
 }
