@@ -1,28 +1,24 @@
 <?php
 
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\FormController;
+use Illuminate\Support\Facades\Route;
 
-// Route untuk menampilkan form
-Route::get('/user/create', [UserController::class, 'create']);
+// Route ke URL '/hello' yang menampilkan data pada view
+Route::view('/hello', 'hello', ['data' => 'Hello ppl']);
 
-// Route untuk menyimpan data
-Route::post('/user/store', [UserController::class, 'store']);
+// Route ke URL '/hello-again' dengan parameter data 'name'
+Route::view('/hello-again', 'hello', ['data' => ['name' => 'Farhan']]);
 
-
-// Route untuk menampilkan form
-Route::get('/form', [FormController::class, 'showForm']);
-
-// Route untuk menangani submit form
-Route::post('/form/submit', [FormController::class, 'handleForm']);
-
-
-// Route untuk menangani RouteParameter
+// Route dengan parameter 'id' untuk menampilkan produk tertentu
 Route::get('/products/{id}', function ($id) {
-    return "Product $id";
+    return "Product ID: " . $id;
 });
 
-Route::get('/products/{id}/items/{item_id}', function ($id, $item_id) {
-    return "Product $id, item $item_id";
-});
+// Route dengan parameter 'id' untuk kategori
+Route::get('/categories/{id}', function ($id) {
+    return "Category ID: " . $id;
+})->where('id', '[0-9]+');
 
+// Route dengan parameter 'userId' dan nilai default '404'
+Route::get('/users/{id?}', function ($userId = '404') {
+    return "User ID: " . $userId;
+});
