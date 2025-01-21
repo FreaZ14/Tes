@@ -5,21 +5,27 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Http\Controllers\HelloController;
 use Illuminate\Http\Request;
 use App\Services\HelloService;
 
 class HelloControllerTest extends TestCase
 {
-    private HelloService $helloService;
+    private HelloController $helloController;
 
-    public function __construct(HelloService $helloService)
+    public function __construct(HelloController $helloController)
     {
-        $this->helloService = $helloService;
+        $this->helloController = $helloController;
     }
 
-    public function hello(Request $request, string $name)
+    public function test_hello()
     {
-        return $this->helloService->hello(name: $name);
+        $request = Request::create('/hello', 'GET', ['name' => 'Farhan']);
+
+        $response = $this->helloController->hello($request);
+
+        $this->assertEquals('Hello Farhan', $response->getContent());
     }
 }
+
 
