@@ -18,7 +18,6 @@ class FileControllerTest extends TestCase
         $this->post(uri: '/file/upload', data: [
             'picture' => $picture
 
-            
-        ])->assertStatus(value: "OKtest.jpg");
+        ])->assertSeeText(value: "OKtest.jpg");
     }
 }
