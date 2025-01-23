@@ -8,10 +8,10 @@ class RedirectController extends Controller
 {
     public function redirectTo(): string
     {
-        return "RedirectTo";
+        return "Redirect To";
     }
     public function redirectFrom(): RedirectResponse
     {
-        return redirect("/redirect/to");
+        return redirect('/redirect/to');
     }
 }
