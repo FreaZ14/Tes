@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 // Route ke URL '/hello' yang menampilkan data pada view
 Route::view('/hello', 'hello', ['data' => 'Hello ppl']);
 
