@@ -24,3 +24,6 @@ Route::get('/users/{id?}', function ($userId = '404') {
 });
 
 Route::get('/cookie/set', [App\Http\Controllers\CookieController::class, 'createCookie']);
+
+Route::get('/redirect/from', [App\Http\Controllers\RedirectController::class, 'redirectFrom']);
+Route::get('/redirect/to', [App\Http\Controllers\RedirectController::class, 'redirectTo']);
