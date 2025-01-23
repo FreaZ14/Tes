@@ -22,3 +22,5 @@ Route::get('/categories/{id}', function ($id) {
 Route::get('/users/{id?}', function ($userId = '404') {
     return "User ID: " . $userId;
 });
+
+Route::get('/cookie/set', [App\Http\Controllers\CookieController::class, 'createCookie']);
