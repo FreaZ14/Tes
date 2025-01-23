@@ -27,3 +27,6 @@ Route::get('/cookie/set', [App\Http\Controllers\CookieController::class, 'create
 
 Route::get('/redirect/from', [App\Http\Controllers\RedirectController::class, 'redirectFrom']);
 Route::get('/redirect/to', [App\Http\Controllers\RedirectController::class, 'redirectTo']);
+Route::get('/redirect/name', [App\Http\Controllers\RedirectController::class, 'redirectName']);
+Route::get('/redirect/name{name}', [App\Http\Controllers\RedirectController::class, 'redirectHello'])
+    ->name('redirect-hello');
