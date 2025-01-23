@@ -8,11 +8,11 @@ use Tests\TestCase;
 
 class CookieController extends TestCase
 {
-    public function testCreateCookie()
+    public function testCreateCookie(): void
     {
-        $this->get('/cookie/set')
-            ->assertSeeText('Hello Cookie')
-            ->assertCookie('User-Id', 'Farhan')
-            ->assertCookie('Is_Member', 'true');
+        $this->get(uri: '/cookie/set')
+            ->assertSeeText(value: 'Hello Cookie')
+            ->assertCookie(cookieName: 'User-Id', value: 'Farhan')
+            ->assertCookie(cookieName: 'Is_Member', value: 'true');
     }
 }
