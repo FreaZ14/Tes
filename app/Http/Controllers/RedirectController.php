@@ -15,7 +15,7 @@ class RedirectController extends Controller
     {
         return redirect('/redirect/to');
     }
-    public function redirectHello(): RedirectResponse
+    public function redirectName(): RedirectResponse
     {
         return redirect()->route('redirect-hello', [
             'name' => 'Farhan'
