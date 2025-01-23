@@ -15,7 +15,7 @@ class RedirectController extends Controller
     {
         return redirect('/redirect/to');
     }
-    public function redirectHello(): RedirectResponse
+    public function redirectHello(string $name): string
     {
         return "Hello $name";
     }
