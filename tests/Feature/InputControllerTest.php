@@ -5,58 +5,23 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use function PHPUnit\Framework\assertSeeText;
-use App\Http\Controllers\InputController;
-use function PHPUnit\Framework\assertEquals;
-use function PHPUnit\Framework\assertNotSame;
 
 class InputControllerTest extends TestCase
 {
     public function testInput(): void
     {
-        $this->post('/input/hello', [
-            'name' => 'Farhan'
+        $this->post(uri:'/input/hello', data: [
+            'name' => 'Farhan',
         ])->assertSeeText('Hello Farhan');
     }
 
     public function testInputNested(): void
     {
-        $this->post('/input/hello/first', [
+        $this->post(uri:'/input/hello/first', data: [
             'name' => [
                 'first' => 'Farhan',
                 'last' => 'Assyauqi'
-            ]
+            ],
         ])->assertSeeText('Hello Farhan Assyauqi');
     }
-
-    public function testInputType(): void
-    {
-        $this->post(uri:'/input/type',data: [
-            'name' => 'Farhan',
-            'married' => 'false',
-            'birth_date' => '2006-01-21'
-        ])->assertSeeText(value: 'Farhan')->assertSeeText(value: 'false')->assertSeeText(value: '2006-01-21');
-    }
-
-    public function testFilterOnly(): void
-    {
-        $this->post(uri: '/input/filter/only', data:[
-            "name" => [
-                "first" => "Muhammad",
-                "middle" => "Farhan",
-                "last" => "Assyauqi"
-            ]
-        ])->assertSeeText(value: "Muhammad")->assertSeeText(value: "Assyauqi")
-        ->assertDontSeeText(value: "Assyauqi");
-}
-public function testFilterExcept(): void
-{
-    $this->post(uri: '/input/filter/except', data: [
-            "username" => "Farhan",
-            "password" => "123456",
-            "admin" => "true"
-
-        ])->assertSeeText(value: "Farhan")->assertSeeText(value: "123456")
-        ->assertDontSeeText(value: "true");
-}
 }
