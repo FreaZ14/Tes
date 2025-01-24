@@ -9,12 +9,7 @@ use App\Http\Controllers\InputController;
 
 class InputControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testInput()
+        public function testInput()
     {
         $this->get('/input/hello?name=Farhan')
             ->assertSeeText('Hello Farhan');
