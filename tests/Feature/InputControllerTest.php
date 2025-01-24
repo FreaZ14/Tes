@@ -26,7 +26,7 @@ class InputControllerTest extends TestCase
                 "first" => "Farhan",
                 "last" => "Assyauqi"
             ]
-        ])->assertSeeText('Hello Farhan');
+        ])->assertSeeText("Hello Farhan");
     }
 }
 
