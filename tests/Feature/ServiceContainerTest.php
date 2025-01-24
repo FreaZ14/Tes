@@ -16,7 +16,7 @@ class ServiceContainerTest extends TestCase
      *
      * @return void
      */
-    public function testDependencyInjection()
+    public function testDependency()
     {
         //$foo = new Foo();
         $foo1 = $this->app->make(Foo::class);
@@ -73,4 +73,21 @@ class ServiceContainerTest extends TestCase
         self::assertSame($person1, $person2);
     }
 
+    public function testDependencyInjection()
+    {
+        $this->app->singleton(Foo::class, function ($app) {
+            return new Foo();
+        });
+        $this->app->singleton(Bar::class, function ($app) {
+            $foo = $app->make(Foo::class);
+            return new Bar($foo); 
+        });
+
+        $foo = $this->app->make(Foo::class);
+        $bar1 = $this->app->make(Bar::class);
+        $bar2 = $this->app->make(Bar::class);
+
+        self::assertSame($foo, $bar->foo);
+        self::assertSame($bar1, $bar2);
+    }
   }
