@@ -5,11 +5,12 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Http\Controllers\InputController;
 
 class InputControllerTest extends TestCase
 {
-        public function testInput()
+    use RefreshDatabase;
+
+    public function testInput()
     {
         $this->get('/input/hello?name=Farhan')
             ->assertSeeText('Hello Farhan');
