@@ -20,7 +20,7 @@ class ServiceContainerTest extends TestCase
     {
         //$foo = new Foo();
         $foo1 = $this->app->make(Foo::class);
-        $foo2 = $this->app->make(Bar::class);
+        $foo2 = $this->app->make(Foo::class);
 
         self::assertEquals('Foo', $foo1->foo());
         self::assertEquals('Foo', $foo2->foo());
