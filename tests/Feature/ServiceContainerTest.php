@@ -21,12 +21,37 @@ class ServiceContainerTest extends TestCase
 
         self::assertEquals('Foo', $foo1->foo());
         self::assertEquals('Foo', $foo2->foo());
-        self::assertNotEquals($foo1, $foo2); 
+        self::assertNotSame($foo1, $foo2); 
     }
 
     public function testBind()
     {
-        $person = $this->app->make(Person::class);
-        self::assertNotNull($person);
+        //$person = $this->app->make(Person::class);
+        //self::assertNotNull($person);
+
+        $this->app->bind(Person::class, function ($app) {
+            return new Person("Farhan", "Assyauqi"); 
+        });
+
+        $person1 = $this->app->make(Person::class);
+        $person2 = $this->app->make(Person::class);
+
+        self::assertEquals('Farhan', $person1->firstName);
+        self::assertEquals('Farhan', $person1->firstName);
+        self::assertNotSame($person1, $person2);
     }
-}
+
+    public function testSingleton()
+    {
+        $this->app->singleton(Person::class, function ($app) {
+            return new Person("Farhan", "Assyauqi"); 
+        });
+
+        $person1 = $this->app->make(Person::class);
+        $person2 = $this->app->make(Person::class);
+
+        self::assertEquals('Farhan', $person1->firstName);
+        self::assertEquals('Farhan', $person1->firstName);
+        self::assertSame($person1, $person2);
+    }
+  }
