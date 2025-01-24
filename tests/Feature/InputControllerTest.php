@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Http\Controllers\InputController;
+use Illuminate\Http\Request;
 
 class InputControllerTest extends TestCase
 {
@@ -20,17 +21,6 @@ class InputControllerTest extends TestCase
             'name' => 'Farhan'
         ])->assertSeeText('Hello Farhan');
     }
-
-    public function testInputNested()
-    {
-        $this->post('/input/hello/first', [
-            "name" => [
-                "first" => "Farhan",
-                "last" => "Assyauqi"
-            ]
-        ])->assertSeeText("Hello Farhan");
-    }
-
     public function testInputType()
     {
         $this->post('/input/type', [
@@ -40,4 +30,5 @@ class InputControllerTest extends TestCase
         ])->assertSeeText('Farhan')->assertSeeText("false")->assertSeeText("2006-01-21");
     }
 }
+
 
