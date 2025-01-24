@@ -8,6 +8,8 @@ use Tests\TestCase;
 use App\Data\Foo;
 use App\Data\Bar;
 use App\Data\Person;
+use App\Services\HelloService;
+
 
 class ServiceContainerTest extends TestCase
 {
