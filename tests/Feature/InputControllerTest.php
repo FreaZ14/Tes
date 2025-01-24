@@ -10,11 +10,20 @@ class InputControllerTest extends TestCase
 {
        public function testInput()
     {
-        $this->get('/input/hello?name=Farhan')
-        ->assertSeeText('Hello Farhan');
+        $this->get('/input/hello/name=Farhan')
+            ->assertSeeText('Hello Farhan');
 
         $this->post('/input/hello', [
             'name' => 'Farhan'
+        ])->assertSeeText('Hello Farhan');
+    }
+    public function testInputNested()
+    {
+        $this->post('/input/hello/first', [
+            "name" => [
+                "first" => "Farhan",
+                "last" => "Assyauqi"
+            ]
         ])->assertSeeText('Hello Farhan');
     }
 }

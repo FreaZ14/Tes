@@ -10,4 +10,10 @@ class InputController extends Controller
         $name = $request->input('name');
         return "Hello $name";
     }
+
+    public function helloFirstName(Request $request): string 
+     {
+        $firstname = $request->input('name.first');
+        return "Hello $firstname";
+    }
 }

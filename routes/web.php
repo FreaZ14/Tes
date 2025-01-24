@@ -37,3 +37,4 @@ Route::get('/redirect/name/{name}', [App\Http\Controllers\RedirectController::cl
 
 Route::get('/input/hello', [App\Http\Controllers\InputController::class, 'hello']);
 Route::post('/input/hello', [App\Http\Controllers\InputController::class, 'hello']);
+Route::post('/input/hello/first', [App\Http\Controllers\InputController::class, 'hello']);
