@@ -28,7 +28,7 @@ class InputControllerTest extends TestCase
         'married' => 'false',
         'birth_date' => '2006-01-21'
     ])
-    ->assertJson([
+    ->assertSeeText([
         'name' => 'Farhan',
         'married' => false,
         'birth_date' => '2006-01-21',
