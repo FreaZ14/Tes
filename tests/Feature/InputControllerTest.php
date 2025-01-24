@@ -3,6 +3,12 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use function PHPUnit\Framework\assertSeeText;
+use App\Http\Controllers\InputController;
+use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertNotSame;
 
 class InputControllerTest extends TestCase
 {
