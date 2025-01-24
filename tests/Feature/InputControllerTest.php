@@ -25,7 +25,7 @@ class InputControllerTest extends TestCase
     {
         $this->post('/input/type', [
             'name' => 'Farhan',
-            'married' => 'false',
+            'married' => false,
             'birth_date' => '2006-01-21'
         ])->assertSeeText('Farhan')->assertSeeText("false")->assertSeeText("2006-01-21");
     }
