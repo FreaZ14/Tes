@@ -31,7 +31,7 @@ class InputControllerTest extends TestCase
         ->assertSeeText([
             'name' => 'Farhan',
             'married' => false,
-            'birth_date' => '2006-01-21',
+            'birth_date' => "2006-01-21",
         ]);
     }
     
