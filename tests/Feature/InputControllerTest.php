@@ -23,15 +23,19 @@ class InputControllerTest extends TestCase
     }
     public function testInputType()
     {
-    $this->post('/input/type', [
-        'name' => 'Farhan',
-        'married' => 'true', // Kirim sebagai string
-        'birth_date' => '2006-01-21'
-    ])
-    ->assertSeeText('Farhan')
-    ->assertSeeText("true")
-    ->assertSeeText("2006-01-21");
+        $this->post('/input/type', [
+            'name' => 'Farhan',
+            'married' => 'false', // String 'false' akan dikonversi ke boolean false
+            'birth_date' => '2006-01-21'
+        ])
+        ->assertJson([
+            'name' => 'Farhan',
+            'married' => false,
+            'birth_date' => '2006-01-21',
+        ]);
     }
+    
+
 
     
 }

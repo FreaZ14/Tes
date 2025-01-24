@@ -21,14 +21,15 @@ class InputController extends Controller
 
     public function inputType(Request $request): string {
         $name = $request->input('name');
-        $married = filter_var($request->input('married'), FILTER_VALIDATE_BOOLEAN); // Mengonversi string 'false' ke boolean false
+        $married = filter_var($request->input('married'), FILTER_VALIDATE_BOOLEAN); // Mendukung 'false' sebagai boolean
         $birthDate = $request->date('birth_date', 'Y-m-d');
     
         return json_encode([
             'name' => $name,
-            'married' => $married,  
+            'married' => $married,
             'birth_date' => $birthDate->format('Y-m-d')
         ]);
     }
+    
     
 }
