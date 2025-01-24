@@ -96,7 +96,7 @@ class ServiceContainerTest extends TestCase
 
     public function testInterfaceToClass()
     {
-        $this->app->singleton(HelloService::class, HelloServiceIndonesia::class);
+        //$this->app->singleton(HelloService::class, HelloServiceIndonesia::class);
 
         $this->app->singleton(HelloService::class, function($app){
             return new HelloServiceIndonesia();
