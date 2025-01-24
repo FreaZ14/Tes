@@ -9,6 +9,7 @@ use App\Data\Foo;
 use App\Data\Bar;
 use App\Data\Person;
 use App\Services\HelloService;
+use App\Services\HelloServiceIndonesia;
 
 
 class ServiceContainerTest extends TestCase
