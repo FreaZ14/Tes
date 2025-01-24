@@ -8,7 +8,12 @@ use Tests\TestCase;
 
 class InputControllerTest extends TestCase
 {
-       public function testInput()
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function testInput()
     {
         $this->get('/input/hello?name=Farhan')
             ->assertSeeText('Hello Farhan');
@@ -17,6 +22,7 @@ class InputControllerTest extends TestCase
             'name' => 'Farhan'
         ])->assertSeeText('Hello Farhan');
     }
+
     public function testInputNested()
     {
         $this->post('/input/hello/first', [
@@ -27,3 +33,4 @@ class InputControllerTest extends TestCase
         ])->assertSeeText('Hello Farhan');
     }
 }
+
