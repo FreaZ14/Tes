@@ -27,12 +27,8 @@ class InputControllerTest extends TestCase
         'name' => 'Farhan',
         'married' => 'false',
         'birth_date' => '2006-01-21'
-    ])
-    ->assertSeeText([
-        'name' => 'Farhan',
-        'married' => false,
-        'birth_date' => '2006-01-21',
-    ]);
+    ])->asserSeeText('Farhan')->assertSeeText(false)->assertSeeText('2006-01-21');
+       
 }
 
     
