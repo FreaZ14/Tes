@@ -34,3 +34,6 @@ Route::get('/redirect/to', [App\Http\Controllers\RedirectController::class, 'red
 Route::get('/redirect/name', [App\Http\Controllers\RedirectController::class, 'redirectName']);
 Route::get('/redirect/name/{name}', [App\Http\Controllers\RedirectController::class, 'redirectHello'])
     ->name('redirect-hello');
+
+Route::get('/input/hello', [App\Http\Controllers\InputController::class, 'hello']);
+Route::post('/input/hello', [App\Http\Controllers\InputController::class, 'hello']);

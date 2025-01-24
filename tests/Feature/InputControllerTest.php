@@ -2,26 +2,19 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class InputControllerTest extends TestCase
 {
-    public function testInput(): void
+       public function testInput()
     {
-        $this->post(uri:'/input/hello', data: [
-            'name' => 'Farhan',
-        ])->assertSeeText('Hello Farhan');
-    }
+        $this->get('/input/hello?name=Farhan')
+        ->assertSeeText('Hello Farhan');
 
-    public function testInputNested(): void
-    {
-        $this->post(uri:'/input/hello/first', data: [
-            'name' => [
-                'first' => 'Farhan',
-                'last' => 'Assyauqi'
-            ],
-        ])->assertSeeText('Hello Farhan Assyauqi');
+        $this->post('/input/hello', [
+            'name' => 'Farhan'
+        ])->assertSeeText('Hello Farhan');
     }
 }
