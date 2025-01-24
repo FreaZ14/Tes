@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Data\Foo;
 use App\Data\Bar;
+use App\Data\Person;
 
 class ServiceContainerTest extends TestCase
 {
