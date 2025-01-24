@@ -10,7 +10,7 @@ class InputControllerTest extends TestCase
 {
        public function testInput()
     {
-        $this->get('/input/hello/name=Farhan')
+        $this->get('/input/hello?name=Farhan')
             ->assertSeeText('Hello Farhan');
 
         $this->post('/input/hello', [
