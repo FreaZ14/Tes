@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Http\Controllers\InputController;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class InputControllerTest extends TestCase
 {
     use RefreshDatabase;
