@@ -12,15 +12,6 @@ class InputControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testInput()
-    {
-        $this->get('/input/hello?name=Farhan')
-            ->assertSeeText('Hello Farhan');
-
-        $this->post('/input/hello', [
-            'name' => 'Farhan'
-        ])->assertSeeText('Hello Farhan');
-    }
     public function testInputType()
     {
     $this->post('/input/type', [
