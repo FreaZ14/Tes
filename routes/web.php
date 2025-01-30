@@ -39,7 +39,8 @@ Route::get('/input/hello', [App\Http\Controllers\InputController::class, 'hello'
 Route::post('/input/hello', [App\Http\Controllers\InputController::class, 'hello']);
 Route::post('/input/hello/first', [App\Http\Controllers\InputController::class, 'hello']);
 Route::post('/input/type', [App\Http\Controllers\InputController::class, 'InputType']);
-
+Route::post('/input/only', [App\Http\Controllers\InputController::class, 'filterOnly']);
+Route::post('/input/except', [App\Http\Controllers\InputController::class, 'filterExcept']);
 
 Route::get('/middleware/api', function (){
     return "OK";
@@ -49,3 +50,4 @@ Route::get('response/hello', [App\Http\Controllers\ResponseController::class, 'r
 Route::get('response/header', [App\Http\Controllers\ResponseController::class, 'header']);
 
 Route::post('file/upload', [App\Http\Controllers\FileController::class, 'upload']);
+

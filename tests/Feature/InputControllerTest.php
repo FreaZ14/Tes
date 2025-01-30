@@ -30,6 +30,17 @@ class InputControllerTest extends TestCase
     ])->assertSeeText('Farhan')->assertSeeText("false")->assertSeeText("2006-01-21");
        
 }
+    public function testInputOnly()
+{
+    $this->post('/input/filter/only', [
+        "name" => [
+            "first" => "Muhammad",
+            "middle" => "Farhan",
+            "last" => "Assyauqi"
+        ]
+    ])->assertSeeText("Muhammad")->assertSeeText("Assyauqi")
+    ->assertDontSeeText("Farhan");
+}
 
     
 

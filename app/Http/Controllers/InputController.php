@@ -31,5 +31,15 @@ class InputController extends Controller
         ]);
     }
     
-    
+    public function filterOnly(Request $request): string 
+    {
+        $name = $request->only("name.first", "name.last");
+        return json_encode($name);
+    }
+
+    public function filterExcept(Request $request): string
+    {
+        $user = $request->except("admin");
+        return json_encode($user);
+    }
 }
