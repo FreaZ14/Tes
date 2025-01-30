@@ -43,6 +43,16 @@ class InputControllerTest extends TestCase
     ])->assertSeeText("Muhammad")->assertSeeText("Assyauqi")
     ->assertDontSeeText("Farhan");
 }
+
+public function testFilterExcept()
+{
+    $this->post('/input/filter/except', [
+            "username" => "Farhan",
+            "password" => "Rahasia",
+            "admin" => "true"
+    ])->assertSeeText("Farhan")->assertSeeText("Rahasia")
+    ->assertDontSeeText("Admin");
+}
 }
 
 
