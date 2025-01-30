@@ -51,3 +51,4 @@ Route::get('response/header', [App\Http\Controllers\ResponseController::class, '
 
 Route::post('file/upload', [App\Http\Controllers\FileController::class, 'upload']);
 
+Route::get('/controller/hello', [App\Http\Controllers\HelloController::class, 'hello']);
