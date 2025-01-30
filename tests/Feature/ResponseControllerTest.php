@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 
 class ResponseControllerTest extends TestCase
 {
