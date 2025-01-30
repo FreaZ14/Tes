@@ -29,7 +29,7 @@ class RoutingTest extends TestCase
             ->assertSeeText("Products : 1, Items : XXX");
 
         $this->get('/products/2/items/YYY')
-            ->assertSeeText("Product : 2, Items : YYY");
+            ->assertSeeText("Products : 2, Items : YYY");
     }
 }
 
