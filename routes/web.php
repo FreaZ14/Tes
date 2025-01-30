@@ -47,3 +47,5 @@ Route::get('/middleware/api', function (){
 
 Route::get('response/hello', [App\Http\Controllers\ResponseController::class, 'response']);
 Route::get('response/header', [App\Http\Controllers\ResponseController::class, 'header']);
+
+Route::post('file/upload', [App\Http\Controllers\FileController::class, 'upload']);
