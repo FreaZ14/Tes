@@ -7,26 +7,6 @@ use Illuminate\Foundation\Testing\WithFaker;
 class RoutingTest extends TestCase
     
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testRouteParameter(): void
-            {
-                $this->get(uri: '/products/1')
-                    ->assertSeeText(text: 'Product 1');
-            
-                $this->get(uri: '/products/2')
-                    ->assertSeeText(text: 'Product 2');
-            
-                $this->get(uri: '/products/1/items/XXX')
-                    ->assertSeeText(value: 'product 1 item XXX');
-            
-                $this->get(uri: '/products/2/items/YYY')
-                    ->assertSeeText(value: 'product 2 item YYY');
-            
-    }
 
     public function testNamedRoute()
     {
@@ -35,6 +15,21 @@ class RoutingTest extends TestCase
 
         $this->get('/produk-redirect/12345')
             ->assertRedirect('/products/12345');
+    }
+
+    public function testRouteParameter()
+    {
+        $this->get('/products/1')
+            ->assertSeeText('Product 1');
+
+        $this->get('/products/2')
+            ->assertSeeText('Product 2');
+
+        $this->get('/products/1/items/XXX')
+            ->assertSeeText('Product 1, Item XXX');
+
+        $this->get('/products/2/items/YYY')
+            ->assertSeeText('Product 2, Item YYY');
     }
 }
 

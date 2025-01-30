@@ -63,4 +63,11 @@ Route::get('/produk-redirect/{id}', function ($Id) {
     return redirect()->route('product.detail', ['id' => $Id]);
 });
 
+Route::get('/products/{id}', function ($productId) {
+    return "Products $productid";
+});
+
+Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
+    return "Products $productid, Item $itemId";
+});
 
