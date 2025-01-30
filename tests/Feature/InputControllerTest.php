@@ -8,6 +8,8 @@ use Tests\TestCase;
 use App\Http\Controllers\InputController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
+
 class InputControllerTest extends TestCase
 {
     use RefreshDatabase;
