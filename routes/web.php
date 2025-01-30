@@ -10,6 +10,8 @@ Route::get('pzn', function () {
     return "Hello Farhan";
 });
 
+Route::redirect('/youtube', '/pzn');
+
 Route::get('/cookie/set', [App\Http\Controllers\CookieController::class, 'createCookie']);
 
 Route::get('/redirect/from', [App\Http\Controllers\RedirectController::class, 'redirectFrom']);
