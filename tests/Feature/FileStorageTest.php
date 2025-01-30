@@ -8,15 +8,14 @@ use Tests\TestCase;
 
 class FileStorageTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    public function testStorage()
     {
-        $response = $this->get('/');
+       $filesystem = Storage::disk("local");
 
-        $response->assertStatus(200);
+       $filesystem->put("file.txt", "Farhan Assyauqi");
+
+       $content = $filesystem->get("file.txt");
+
+       self::assertEquals("Farhan Assyauqi", $content);
     }
 }
