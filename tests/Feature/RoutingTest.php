@@ -1,6 +1,8 @@
 <?php
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class RoutingTest extends TestCase
     
@@ -29,7 +31,7 @@ class RoutingTest extends TestCase
     public function testNamedRoute()
     {
         $this->get('/produk/12345')
-            ->assertSeeText('Link http://localhost/products/12345');
+            ->assertSeeText('Link : http://localhost/products/12345');
 
         $this->get('/produk-redirect/12345')
             ->assertRedirect('/products/12345');
