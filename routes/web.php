@@ -12,21 +12,6 @@ Route::view('/hello', 'hello', ['data' => 'Hello ppl']);
 // Route ke URL '/hello-again' dengan parameter data 'name'
 Route::view('/hello-again', 'hello', ['data' => ['name' => 'Farhan']]);
 
-// Route dengan parameter 'id' untuk menampilkan produk tertentu
-Route::get('/products/{id}', function ($id) {
-    return "Product ID: " . $id;
-});
-
-// Route dengan parameter 'id' untuk kategori
-Route::get('/categories/{id}', function ($id) {
-    return "Category ID: " . $id;
-})->where('id', '[0-9]+');
-
-// Route dengan parameter 'userId' dan nilai default '404'
-Route::get('/users/{id?}', function ($userId = '404') {
-    return "User ID: " . $userId;
-});
-
 Route::get('/cookie/set', [App\Http\Controllers\CookieController::class, 'createCookie']);
 
 Route::get('/redirect/from', [App\Http\Controllers\RedirectController::class, 'redirectFrom']);
@@ -52,3 +37,30 @@ Route::get('response/header', [App\Http\Controllers\ResponseController::class, '
 Route::post('file/upload', [App\Http\Controllers\FileController::class, 'upload']);
 
 Route::get('/controller/hello/{name}', [App\Http\Controllers\HelloController::class, 'hello']);
+
+Route::get('/products/{id}', function ($productId) {
+    return "Products : " . $productId;
+})->name('product.detail');
+
+Route::get('/products/{productId}/items/{itemId}', function ($productId, $itemId) {
+    return "Products : " . $productId . ", Items : " . $itemId;
+})->name('product.item.detail');
+
+Route::get('/categories/{id}', function (string $categoryId) {
+    return "Categories : " . $categoryId;
+})->where('id', '[0-9]+')->name('categories.detail');
+
+Route::get('/users/{id?}', function (string $userId = '404') {
+    return "Users : " . $userId;
+})->name('users.detail'); 
+
+Route::get('/produk/{id}', function ($Id) {
+    $link = route ('product.detail', ['id' => $Id]);
+    return "Link : " . $link;
+});
+
+Route::get('/produk-redirect/{id}', function ($Id) {
+    return redirect()->route('product.detail', ['id' => $Id]);
+});
+
+

@@ -26,7 +26,7 @@ class RoutingTest extends TestCase
             
     }
 
-    public function testNamed()
+    public function testNamedRoute()
     {
         $this->get('/produk/12345')
             ->assertSeeText('Link http://localhost/produk/12345');
