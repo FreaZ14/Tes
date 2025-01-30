@@ -4,10 +4,14 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 
-class RoutingTest extends TestCase
-    
+class RoutingTest extends TestCase   
 {
-
+    public function testGet()
+    {
+        $this->get('/pzn')
+            ->assertStatus(200)
+            ->assertSeeText('Hello Farhan');
+    }
     public function testNamedRoute()
     {
         $this->get('/produk/12345')

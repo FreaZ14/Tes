@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('pzn', function () {
+    return "Hello Farhan";
+});
+
 Route::get('/cookie/set', [App\Http\Controllers\CookieController::class, 'createCookie']);
 
 Route::get('/redirect/from', [App\Http\Controllers\RedirectController::class, 'redirectFrom']);
