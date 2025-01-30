@@ -35,7 +35,7 @@ class ResponseControllerTest extends TestCase
 
     public function testJson()
     {
-       $this->get('/response/json')
+       $this->get('/response/type/json')
             ->assertJson([
                 'firstname' => 'Farhan',
                 'lastname' => 'Assyauqi'
