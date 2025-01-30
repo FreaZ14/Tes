@@ -29,7 +29,7 @@ class RoutingTest extends TestCase
     public function testNamedRoute()
     {
         $this->get('/produk/12345')
-            ->assertSeeText('Link http://localhost/produk/12345');
+            ->assertSeeText('Link http://localhost/produtcs/12345');
 
         $this->get('/produk-redirect/12345')
             ->assertRedirect('/products/12345');
