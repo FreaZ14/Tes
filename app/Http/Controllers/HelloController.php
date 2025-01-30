@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\HelloService;
 
 class HelloController extends Controller
 {
@@ -12,8 +13,9 @@ class HelloController extends Controller
     {
         $this->helloService = $helloService;
     }
-    public function hello(): string
+
+    public function hello(string $name): string
     {
-        return "Hello World";
+        return $this->helloService->hello($name);
     }
 }
