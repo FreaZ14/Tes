@@ -34,7 +34,7 @@ class InputControllerTest extends TestCase
 }
     public function testFilterOnly()
 {
-    $this->post('/input/filter/only', [
+    $this->post('/input/only', [
         "name" => [
             "first" => "Muhammad",
             "middle" => "Farhan",
@@ -46,7 +46,7 @@ class InputControllerTest extends TestCase
 
 public function testFilterExcept()
 {
-    $this->post('/input/filter/except', [
+    $this->post('/input/except', [
             "username" => "Farhan",
             "password" => "Rahasia",
             "admin" => "true"
