@@ -43,11 +43,6 @@ class InputControllerTest extends TestCase
     ])->assertSeeText("Muhammad")->assertSeeText("Assyauqi")
     ->assertDontSeeText("Farhan");
 }
-
-    
-
-
-    
 }
 
 
