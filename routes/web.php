@@ -44,3 +44,6 @@ Route::post('/input/type', [App\Http\Controllers\InputController::class, 'InputT
 Route::get('/middleware/api', function (){
     return "OK";
 })->middleware([\App\Http\Middleware\ContohMiddleware::class]);
+
+Route::get('response/hello', [App\Http\Controllers\ResponseController::class, 'response']);
+Route::get('response/header', [App\Http\Controllers\ResponseController::class, 'header']);

@@ -8,29 +8,21 @@ use Tests\TestCase;
 
 class ResponseControllerTest extends TestCase
 {
-    public function testResponse(): void
+    public function testResponse()
     {
-        $this->get('/response/hello')
-            ->assertStatus(404)
-            ->assertDontSeeText('hello response');
+       $this->get('/response/hello')
+            ->assertStatus(200)
+            ->assertSeeText('Hello Response');
     }
 
-    public function testHeader(): void
+    public function testHeader()
     {
-        $this->get('/response/header')
-            ->assertStatus(404)
-            ->assertDontSeeText('Farhan')
-            ->assertDontSeeText('Assyauqi')
-            ->assertHeaderMissing('Content-Type', 'application/json')
-            ->assertHeaderMissing('Author', 'Muhammad Farhan Assyauqi')
-            ->assertHeaderMissing('App', 'Belajar Laravel');
-            
-
-    $response = $this->get('/response/header');
-    
-    $response->assertHeader('X-Custom-Header', 'CustomValue');
-
-
+       $this->get('/response/header')
+            ->assertStatus(200)
+            ->assertSeeText('Farhan')->assertSeeText('Assyauqi')
+            ->assertHeader('Content-Type', 'application/json')
+            ->assertHeader('Author', 'Farhan Assyauqi')
+            ->assertHeader('App', 'Laravel');
     }
-}
+}       
 
