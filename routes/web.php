@@ -75,7 +75,7 @@ Route::get('/hello-again', function (){
     return view('hello', ['name' => 'Farhan']);
 });
 
-Route::get('/hello-again', function (){
+Route::get('/hello-world', function (){
     return view('hello.world', ['name' => 'Farhan']);
 });
 

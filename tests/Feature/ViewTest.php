@@ -22,6 +22,6 @@ class ViewTest extends TestCase
     public function testNested()
     {
     $this->get('/hello-world')
-    ->assertSeeText('World Farhan');
+    ->assertSeeText("World Farhan");
 }
 }
