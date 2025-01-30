@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\FileController;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class FileControllerTest extends TestCase
 {
