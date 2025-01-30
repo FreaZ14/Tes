@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Http\Controllers\HelloController;
+use App\Http\Controllers\Controller;
 
 class ViewTest extends TestCase
 {
