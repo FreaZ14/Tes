@@ -6,9 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route ke URL '/hello-again' dengan parameter data 'name'
-Route::view('/hello-again', 'hello', ['data' => ['name' => 'Farhan']]);
-
 Route::get('/cookie/set', [App\Http\Controllers\CookieController::class, 'createCookie']);
 
 Route::get('/redirect/from', [App\Http\Controllers\RedirectController::class, 'redirectFrom']);
@@ -72,4 +69,10 @@ Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
     return "Products $productid, Item $itemId";
 });
 
-Route::view('/hello', 'hello', ['data' => 'Hello ppl']);
+Route::view('/hello', 'hello', ['name' => 'Farhan']);
+
+Route::get('/hello-again', function (){
+    return view('hello', ['name' => 'Farhan']);
+});
+
+ 
