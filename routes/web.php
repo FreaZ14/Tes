@@ -6,9 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route ke URL '/hello' yang menampilkan data pada view
-Route::view('/hello', 'hello', ['data' => 'Hello ppl']);
-
 // Route ke URL '/hello-again' dengan parameter data 'name'
 Route::view('/hello-again', 'hello', ['data' => ['name' => 'Farhan']]);
 
@@ -33,6 +30,10 @@ Route::get('/middleware/api', function (){
 
 Route::get('response/hello', [App\Http\Controllers\ResponseController::class, 'response']);
 Route::get('response/header', [App\Http\Controllers\ResponseController::class, 'header']);
+Route::get('response/type/view', [App\Http\Controllers\ResponseController::class, 'view']);
+Route::get('response/json', [App\Http\Controllers\ResponseController::class, 'responseJson']);
+Route::get('response/file', [App\Http\Controllers\ResponseController::class, 'responseFile']);
+Route::get('response/download', [App\Http\Controllers\ResponseController::class, 'responseDownload']);
 
 Route::post('file/upload', [App\Http\Controllers\FileController::class, 'upload']);
 
@@ -71,3 +72,4 @@ Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
     return "Products $productid, Item $itemId";
 });
 
+Route::view('/hello', 'hello', ['data' => 'Hello ppl']);

@@ -26,4 +26,29 @@ class ResponseController extends Controller
                 'App' => 'Laravel'
             ]);
     }
+    public function download(Request $request): Response
+    {
+        return response()
+        ->view('hello', ['name' => 'Farhan']);
+}
+public function responseJson(Request $request): JsonResponse
+{
+    $body = [ 
+        'firstname' => 'Farhan',
+        'lastname' => 'Assyauqi'
+    ];
+    return response()
+    ->json($body);
+}
+public function responseFile(Request $request): BinaryFileResponse
+{
+    return response()
+    ->file(storage_path('app/public/Batu.png'));
+}
+
+public function responseDownload(Request $request): BinaryFileResponse
+{
+    return response()
+    ->download(storage_path('app/public/Batu.png'));
+}
 }

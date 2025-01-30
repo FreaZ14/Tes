@@ -25,5 +25,20 @@ class ResponseControllerTest extends TestCase
             ->assertHeader('Author', 'Farhan Assyauqi')
             ->assertHeader('App', 'Laravel');
     }
+
+    public function testView()
+    {
+       $this->get('/response/type/view')
+            ->assertSeeText('Farhan Assyauqi');
+    }
+
+    public function testJson()
+    {
+       $this->get('/response/type/json')
+            ->assertJson([
+                'firstname' => 'Farhan',
+                'lastname' => 'Assyauqi'
+            ]);
+    }
 }       
 
