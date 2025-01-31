@@ -22,9 +22,11 @@ class SessionControllerTest extends TestCase
             'isMember' => "true"
         ])->get('/session/get')
             ->assertSeeText('User ID :  Farhan, Member : true');
-
-            $this->withSession([])->get('/session/get')
-                ->assertSeeText('User ID :  guest, Member : false');
-        }   
+    }
+    public function testSessionFailed()
+    {
+        $this->withSession([])->get('/session/get')
+        ->assertSeeText('User ID :  guest, Member : false');
+    }   
     }
 
