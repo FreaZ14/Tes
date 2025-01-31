@@ -91,6 +91,10 @@ Route::get('/hello-world', function (){
  Route::get('/form', [App\Http\Controllers\FormController::class, 'form']);
  Route::post('/form', [App\Http\Controllers\FormController::class, 'submitForm']);
 
+Route::get('url/current', function () {
+    return \Illuminate\Support\Facades\URL::full();
+});
+
  Route::middleware(['contoh:PZN,401'])->group(function () {
     Route::get('/middleware/api', function () {
         return "OK";
