@@ -33,10 +33,13 @@ Route::get('/middleware/api', function (){
 
 Route::get('response/hello', [App\Http\Controllers\ResponseController::class, 'response']);
 Route::get('response/header', [App\Http\Controllers\ResponseController::class, 'header']);
-Route::get('response/type/view', [App\Http\Controllers\ResponseController::class, 'view']);
-Route::get('response/json', [App\Http\Controllers\ResponseController::class, 'responseJson']);
-Route::get('response/file', [App\Http\Controllers\ResponseController::class, 'responseFile']);
-Route::get('response/download', [App\Http\Controllers\ResponseController::class, 'responseDownload']);
+
+Route::prefix("/response/type")->group(function () {
+Route::get('/view', [App\Http\Controllers\ResponseController::class, 'view']);
+Route::get('/json', [App\Http\Controllers\ResponseController::class, 'responseJson']);
+Route::get('/file', [App\Http\Controllers\ResponseController::class, 'responseFile']);
+Route::get('/download', [App\Http\Controllers\ResponseController::class, 'responseDownload']);
+});
 
 Route::post('file/upload', [App\Http\Controllers\FileController::class, 'upload']);
 
@@ -87,3 +90,5 @@ Route::get('/hello-world', function (){
 
  Route::get('/form', [App\Http\Controllers\FormController::class, 'form']);
  Route::post('/form', [App\Http\Controllers\FormController::class, 'submitForm']);
+
+ 
