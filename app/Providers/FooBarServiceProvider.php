@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Providers;
-
+use App\Data\Foo;
+use App\Data\Bar;
 use Illuminate\Support\ServiceProvider;
 
 class FooBarServiceProvider extends ServiceProvider
 {
+    public array $singletons = [
+        HelloService::class => HelloServiceIndonesia::class
+    ];
     public function register()
     {
         $this->app->singleton(Foo::class, function ($app) {

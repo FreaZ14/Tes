@@ -26,5 +26,16 @@ class FooBarServiceProviderTest extends TestCase
         self::assertSame($bar1->foo, $foo1);
         self::assertSame($bar2->foo, $foo2);
     }
+
+    public function testPropertySingleton()
+    {
+        $helloService1 = $this->app->make(HelloService::class);
+        $helloService2 = $this->app->make(HelloService::class);
+
+        self::assertSame($helloService1, $helloService2);
+        
+        self::assertEquals('Halo Farhan', $helloService1->hello('Farhan'));
+    }
+
 }
 
