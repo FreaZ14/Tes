@@ -5,9 +5,8 @@ use App\Data\Foo;
 use App\Data\Bar;
 use App\Services\HelloService;
 use App\Services\HelloServiceIndonesia;
-use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Contracts\Support\DeferableProvider;
 use Illuminate\Support\ServiceProvider;
-
 class FooBarServiceProvider extends ServiceProvider implements DeferableProvider
 {
     public array $singletons = [
@@ -40,3 +39,5 @@ class FooBarServiceProvider extends ServiceProvider implements DeferableProvider
         return [HelloService::class, Foo::class, Bar::class];
     }
 }
+
+
