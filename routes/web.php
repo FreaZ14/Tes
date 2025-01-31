@@ -108,3 +108,5 @@ Route::get('url/current', function () {
         return "GROUP";
     });
  });
+
+ Route::get('/session/create', [App\Http\Controllers\SessionController::class, 'createSession']);
