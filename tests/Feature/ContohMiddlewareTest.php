@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Http\Middleware\ContohMiddleware;
+use App\Http\Middleware\ContohMiddleware as Middleware;
 
 class ContohMiddlewareTest extends TestCase
 {
@@ -24,3 +24,4 @@ class ContohMiddlewareTest extends TestCase
             ->assertSeeText("OK");
     }
 }
+
