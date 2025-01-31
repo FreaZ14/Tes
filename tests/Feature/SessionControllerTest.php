@@ -21,6 +21,6 @@ class SessionControllerTest extends TestCase
             'userId' => "Farhan",
             'isMember' => "true"
         ])->get('/session/get')
-            ->assertSeeText("User ID :  Farhan, Is Member : true");
+            ->assertSeeText('User ID :  Farhan, Is Member : true');
     }
 }
