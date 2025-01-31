@@ -24,7 +24,7 @@ class SessionControllerTest extends TestCase
             ->assertSeeText('User ID :  Farhan, Member : true');
 
             $this->withSession([])->get('/session/get')
-                ->assertSeeText('User ID :  Guest, Member : false');
+                ->assertSeeText('User ID :  guest, Member : false');
         }   
     }
 
