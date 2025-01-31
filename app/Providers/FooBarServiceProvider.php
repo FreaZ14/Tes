@@ -8,13 +8,15 @@ class FooBarServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->singleton(Foo::class, function ($app){
+        $this->app->singleton(Foo::class, function ($app) {
             return new Foo();
         });
-        $this->app->singleton(Bar::class, function ($app){
-            return new Bar($app->make(Foo::class));
+    
+        $this->app->singleton(Bar::class, function ($app) {
+            return new Bar();
         });
     }
+    
 
     /**
      * Bootstrap services.
