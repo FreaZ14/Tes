@@ -115,3 +115,7 @@ Route::get('url/current', function () {
  Route::get('/error/sample', function () {
     throw new Exception("Sample Error");
  });
+ Route::get('/error/manual', function () {
+     report(new Exception("Manual Error"));
+     return "OK";
+ });
