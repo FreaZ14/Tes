@@ -124,7 +124,7 @@ Route::get('url/current', function () {
  });
 
  Route::get('/abort/400', function () {
-    abort(400);
+    abort(400, "weh error ternyata");
  });
 
  Route::get('/abort/401', function () {
