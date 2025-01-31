@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Providers;
-use App\Data\Foo;
-use App\Data\Bar;
-
 
 use Illuminate\Support\ServiceProvider;
 
