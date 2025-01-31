@@ -47,11 +47,9 @@ class Handler extends ExceptionHandler
             var_dump($e);
             return false;
         });
-        $this->reportable(function (Throwable $e) {
-            var_dump($e);
-        });
-        $this->reportable(function (Throwable $e) {
-            var_dump($e);
-        });
-    }
+
+    $this->renderable(function (validationException $exception, $request) {
+        return response("Bad Request", 400);
+    });
+    }    
 }
