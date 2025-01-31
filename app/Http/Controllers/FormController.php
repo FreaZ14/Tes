@@ -9,7 +9,7 @@ class FormController extends Controller
 {
     public function form(): Response
     {
-      return response()->view/hello("form");
+      return response()->view("form");
     }
 
     public function submitForm(Request $request): Response
