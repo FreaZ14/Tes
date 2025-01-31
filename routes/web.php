@@ -19,6 +19,11 @@ Route::get('/redirect/to', [App\Http\Controllers\RedirectController::class, 'red
 Route::get('/redirect/name', [App\Http\Controllers\RedirectController::class, 'redirectName']);
 Route::get('/redirect/name/{name}', [App\Http\Controllers\RedirectController::class, 'redirectHello'])
     ->name('redirect-hello');
+Route::get('redirect/named', function () {
+    //return route('redirect-hello', ['name' => 'Farhan']);
+    //return url()->route('redirect-hello', ['name' => 'Farhan']);
+    return \Illuminate\Support\Facades\URL::route('redirect-hello', ['name' => 'Farhan']);
+});
 
 Route::get('/input/hello', [App\Http\Controllers\InputController::class, 'hello']);
 Route::post('/input/hello', [App\Http\Controllers\InputController::class, 'hello']);

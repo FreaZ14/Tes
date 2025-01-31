@@ -13,4 +13,10 @@ class URLGenerationTest extends TestCase
         $this->get('/url/current?name=Farhan')
         ->assertSeeText("/url/current?name=Farhan");
     }
+
+    public function testNamed()
+    {
+        $this->get('/redirect/named')
+        ->assertSeeText("/redirect/name/Farhan");
+    }
 }
