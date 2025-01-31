@@ -3,6 +3,7 @@
         <title>Bad Request</title>
     </head>
     <body>
-        <h1>Bad Request : {{ $exception->getMessage()}}</h1>
+        <h1>Bad Request</h1>
     </body>
 </html>
+
