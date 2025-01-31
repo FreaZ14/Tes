@@ -119,3 +119,6 @@ Route::get('url/current', function () {
      report(new Exception("Manual Error"));
      return "OK";
  });
+ Route::get('/error/validation', function () {
+    throw new \App\Exceptions\ValidationException("Validation Error");
+ });
