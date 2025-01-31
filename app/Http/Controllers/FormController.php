@@ -2,16 +2,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class FormController extends Controller
 {
-    public function handleForm(Request $request)
+    public function form(): Response
     {
-        // Filter input
-        $data = $request->only(['name', 'email']);
-        $data['name'] = trim($data['name']);
-        $data['email'] = strtolower($data['email']);
+      return response()->view("form");
+    }
 
-        return response()->json($data);
+    public function submitForm(Request $request): Response
+    {
+      $name = $request->input("name");
+      return response()->view("hello", [
+        "name" => $name
+      ]);
     }
 }

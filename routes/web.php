@@ -85,4 +85,5 @@ Route::get('/hello-world', function (){
     return view('hello.world', ['name' => 'Farhan']);
 });
 
- 
+ Route::get('/form', [App\Http\Controllers\FormController::class, 'form']);
+ Route::post('/form', [App\Http\Controllers\FormController::class, 'submitForm']);
