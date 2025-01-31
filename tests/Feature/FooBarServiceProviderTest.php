@@ -21,7 +21,7 @@ class FooBarServiceProviderTest extends TestCase
         $bar1 = $this->app->make(Bar::class);
         $bar2 = $this->app->make(Bar::class);
 
-        self::assertSame($bar1, $bar2);
+        self::assertNotSame($bar1, $bar2);
 
         self::assertSame($bar1->foo, $foo1);
         self::assertSame($bar2->foo, $foo2);
