@@ -8,6 +8,9 @@ use Tests\TestCase;
 use App\Data\Foo;
 use App\Data\Bar;
 use App\Providers\FooBarServiceProvider;
+use App\Services\HelloService;
+use App\Services\HelloServiceIndonesia;
+use App\Providers\DeferableProvider;
 
 class FooBarServiceProviderTest extends TestCase
 {
